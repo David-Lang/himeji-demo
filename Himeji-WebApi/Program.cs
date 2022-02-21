@@ -1,6 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var podName = Environment.GetEnvironmentVariable("HOSTNAME");
+if (!string.IsNullOrEmpty(podName))
+{
+    Himeji.Framework.Slack.Api.WebHookBotDuty.SendMessage($"Himeji App Initializing on pod: {podName}");
+}
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

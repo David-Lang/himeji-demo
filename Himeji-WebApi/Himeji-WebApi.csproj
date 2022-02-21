@@ -17,4 +17,8 @@
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Himeji.Framework\Himeji.Framework.csproj" />
+  </ItemGroup>
+
 </Project>
