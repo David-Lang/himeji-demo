@@ -48,7 +48,6 @@ namespace Himeji.Framework.Slack.Api
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex.ToString());
-                throw;
             }
         }
 
