@@ -1,0 +1,57 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: himeji-webapi-pod
+  labels:
+    app: himeji-app
+spec:
+  selector:
+    matchLabels:
+      app: himeji-app
+  replicas: 5
+  minReadySeconds: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: himeji-app
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: himeji-webapi
+        image: davidlang/himeji:v22.2.20.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: himeji-webapi-np
+  labels:
+    app: himeji-app
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 30080
+  selector:
+    app: himeji-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: himeji-webapi-lb
+  labels:
+    app: himeji-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 80
+  selector:
+    app: himeji-app
