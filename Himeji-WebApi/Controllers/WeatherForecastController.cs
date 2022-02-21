@@ -21,11 +21,14 @@ namespace Himeji_WebApi.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            var podName = Environment.GetEnvironmentVariable("HOSTNAME");
+            if (string.IsNullOrEmpty(podName)) podName = "Unable to read HOSTNAME";
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                Summary = $"{podName}-{Summaries[Random.Shared.Next(Summaries.Length)]}"
             })
             .ToArray();
         }

@@ -10,8 +10,8 @@ docker build -t davidlang/himeji:latest -f Dockerfile ..
 
 docker images
 
-docker tag fa317c09e23d davidlang/himeji:v22.2.21.1
-docker tag fa317c09e23d davidlang/himeji-private:v22.2.21.1
+docker tag 89310a9a9324 davidlang/himeji:v22.2.21.3 
+docker tag 89310a9a9324 davidlang/himeji-private:v22.2.21.3 
 
-docker push davidlang/himeji:v22.2.21.1
-docker push davidlang/himeji-private:v22.2.21.1
+docker push davidlang/himeji:v22.2.21.3 
+docker push davidlang/himeji-private:v22.2.21.3 

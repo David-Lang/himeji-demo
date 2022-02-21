@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: himeji-app
-  replicas: 5
+  replicas: 3
   minReadySeconds: 3
   strategy:
     type: RollingUpdate
@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi
-        image: davidlang/himeji:v22.2.21.2
+        image: davidlang/himeji:v22.2.21.3
         env:
           - name: BotDutyWebHook
             valueFrom:
