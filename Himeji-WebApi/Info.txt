@@ -1,1 +1,14 @@
 ﻿docker run -it -p 127.0.0.1:8081:80/tcp himejiwebapi
+
+
+//build and push to docker hub
+//Build from docker file folder WSL 
+docker build -t davidlang/himeji:latest -f Dockerfile ..
+
+docker images
+//retag
+docker tag a00fcec6cec1 davidlang/himeji:v22.2.20.0
+docker tag a00fcec6cec1 davidlang/himeji-private:v22.2.20.0
+
+docker push davidlang/himeji:v22.2.20.0
+docker push davidlang/himeji-private:v22.2.20.0
