@@ -1,7 +1,7 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: himeji-webapi-pod
+  name: himeji-app-pod
   labels:
     app: himeji-app
 spec:
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: himeji-webapi-np
+  name: himeji-webapp-np
   labels:
     app: himeji-app
 spec:
@@ -45,7 +45,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: himeji-webapi-lb
+  name: himeji-app-lb
   labels:
     app: himeji-app
 spec:
