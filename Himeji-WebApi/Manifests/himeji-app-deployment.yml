@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi
-        image: davidlang/himeji:v22.2.23.2
+        image: davidlang/himeji-private:v22.2.23.2
         imagePullSecrets:
         - name: dockerhub-cred
         startupProbe:
