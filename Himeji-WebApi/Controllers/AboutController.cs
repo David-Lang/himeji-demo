@@ -1,36 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace Himeji_WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class AboutController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+       
+        private readonly ILogger<AboutController> _logger;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public AboutController(ILogger<AboutController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet(Name = "About")]
+        public string Get()
         {
-            var podName = Environment.GetEnvironmentVariable("HOSTNAME");
-            if (string.IsNullOrEmpty(podName)) podName = "Unable to read HOSTNAME";
+            var result = new StringBuilder();
 
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = $"{podName}-{Summaries[Random.Shared.Next(Summaries.Length)]}"
-            })
-            .ToArray();
+            var hostName = Environment.GetEnvironmentVariable("HOSTNAME");
+            if (string.IsNullOrEmpty(hostName)) hostName = "Unable to read environment variable HOSTNAME";
+            result.AppendLine($"Running on: {hostName}");
+
+            var appVersion = Environment.GetEnvironmentVariable("AppVersion");
+            if (string.IsNullOrEmpty(appVersion)) appVersion = "Unable to read environment variable AppVersion";
+            result.AppendLine($"AppVersion: {appVersion}");
+
+            var helmRelease = Environment.GetEnvironmentVariable("HelmRelease");
+            if (string.IsNullOrEmpty(helmRelease)) helmRelease = "Unable to read environment variable HelmRelease";
+            result.AppendLine($"HelmRelease: {helmRelease}");
+
+            return result.ToString();
         }
     }
 }

@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi
-        image: davidlang/himeji:v22.2.23.0
+        image: davidlang/himeji:v22.2.23.1
         startupProbe:
           httpGet:
             path: /health/startup
@@ -49,6 +49,10 @@ spec:
               secretKeyRef:
                 name: botdutywebhook
                 key: token
+          - name: AppVersion
+            value: v22.2.23.1
+          - name: HelmRelease
+            value: 0.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
