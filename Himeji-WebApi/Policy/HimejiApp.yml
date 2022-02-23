@@ -17,4 +17,4 @@
     # Give permissions to the non-human identity to fetch the secret.
     role: !host HimejiAppHost
     privileges: [read, execute]
-    resource: *variables
+      resource: *variables

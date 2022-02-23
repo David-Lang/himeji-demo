@@ -1,0 +1,11 @@
+﻿  - !host
+    id: himeji-k8-secret-provider-app
+    annotations:
+      authn-k8s/namespace: himejijo
+      authn-k8s/service-account: default
+      authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
+  - !grant
+    roles:
+    - !group conjur/autharen-k8s/dev-cluster/consumers
+    members:
+    - !host himeji-app
