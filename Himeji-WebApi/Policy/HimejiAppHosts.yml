@@ -4,8 +4,11 @@
     authn-k8s/namespace: himejijo
     authn-k8s/service-account: default
     authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
+
+- !group conjur/authn-k8s/dev-cluster/consumers
+
 - !grant
   roles:
-  - !group conjur/autharen-k8s/dev-cluster/consumers
+  - !group conjur/authn-k8s/dev-cluster/consumers
   members:
   - !host himeji-secrets-provider
