@@ -1,5 +1,5 @@
 ﻿- !host
-  id: himeji-k8-secret-provder-app
+  id: himeji-secrets-provider
   annoations:
     authn-k8s/namespace: himejijo
     authn-k8s/service-account: default
@@ -8,4 +8,4 @@
   roles:
   - !group conjur/autharen-k8s/dev-cluster/consumers
   members:
-  - !host himeji-app
+  - !host himeji-secrets-provider
