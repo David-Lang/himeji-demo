@@ -23,7 +23,9 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi
-        image: davidlang/himeji:v22.2.23.1
+        image: davidlang/himeji:v22.2.23.2
+        imagePullSecrets:
+        - name: dockerhub-cred
         startupProbe:
           httpGet:
             path: /health/startup
@@ -44,14 +46,14 @@ spec:
             port: 80
           successThreshold: 3
         env:
-          - name: BotDutyWebHook
+          - name: SLACK_BOTDUTY_WEBHOOK
             valueFrom:
               secretKeyRef:
-                name: botdutywebhook
+                name: slack_botduty_webhook
                 key: token
-          - name: AppVersion
-            value: v22.2.23.1
-          - name: HelmRelease
+          - name: HIMEJI_APP_VERSION
+            value: v22.2.23.2
+          - name: HIMEJI_HELM_RELEASE
             value: 0.0.0
         imagePullPolicy: Always
         ports:

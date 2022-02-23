@@ -31,10 +31,10 @@ namespace Himeji.Framework.Security
         public static StoredSecret GetBotDutySecret()
         { 
         
-            var secretValue = Environment.GetEnvironmentVariable("BotDutyWebHook");
+            var secretValue = Environment.GetEnvironmentVariable("SLACK_BOTDUTY_WEBHOOK");
             if (secretValue == null)
             {
-                System.Console.WriteLine($"Unable to get Environment Variable 'BotDutyWebHook'");
+                System.Console.WriteLine($"Unable to get Environment Variable 'SLACK_BOTDUTY_WEBHOOK'");
                 secretValue = "";
             }
 

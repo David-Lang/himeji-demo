@@ -5,9 +5,9 @@
   - !user DevOpsAdmin
   - !host HimejiAppHost
   - &variables
-   - !variable BotDutyWebhook
-   - !variable DockerHubKey
-   - !variable GitHubKey
+   - !variable slack_botduty_webhook
+   - !variable dockerhub_cred
+   - !variable github_cred
   - !permit
     # Give permissions to the human user to update the secret and fetch the secret.
     role: !user DevOpsAdmin
