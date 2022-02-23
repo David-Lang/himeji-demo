@@ -24,8 +24,6 @@ spec:
       containers:
       - name: himeji-webapi
         image: davidlang/himeji-private:v22.2.23.2
-        imagePullSecrets:
-        - name: dockerhub-cred
         startupProbe:
           httpGet:
             path: /health/startup
@@ -58,3 +56,5 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: dockerhub-cred 
