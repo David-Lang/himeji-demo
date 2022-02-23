@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,10 +31,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-//app.MapControllers(); // trying to not use this
+//app.MapControllers(); // using app.UseEndpoints instead
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapHealthChecks("/health/startup");
+    endpoints.MapHealthChecks("/healthz");
+    endpoints.MapHealthChecks("/ready");
     endpoints.MapDefaultControllerRoute();
 
     endpoints.MapGet("/", context =>

@@ -1,36 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace Himeji_WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class About : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
+       
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public About(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet(Name = "About")]
+        public string Get()
         {
+            var result = new StringBuilder();
             var podName = Environment.GetEnvironmentVariable("HOSTNAME");
             if (string.IsNullOrEmpty(podName)) podName = "Unable to read HOSTNAME";
+            result.AppendLine($"Running on: {podName}");
 
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = $"{podName}-{Summaries[Random.Shared.Next(Summaries.Length)]}"
-            })
-            .ToArray();
+            return result.ToString();
         }
     }
 }
