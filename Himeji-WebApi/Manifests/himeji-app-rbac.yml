@@ -1,0 +1,24 @@
+﻿apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: secrets-access
+  namespace: himejijo
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: [ "get", "update" ]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: himejijo
+  name: secrets-access-binding
+subjects:
+  - kind: ServiceAccount
+    namespace: himejijo
+    name: default
+roleRef:
+  kind: Role
+  apiGroup: rbac.authorization.k8s.io
+  name: secrets-access

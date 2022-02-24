@@ -1,0 +1,53 @@
+﻿- !policy
+  id: HimejiApp
+  body:
+    # Define a human users
+  - !user DevOpsAdmin
+
+    # Define a hosts (machine user)
+  - !host HimejiApp
+
+  - !host
+    id: himeji-secrets-provider
+    annotations:
+      authn-k8s/namespace: himejijo
+      authn-k8s/service-account: default
+      authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
+
+     # Define a group of users (human)
+  - !group consumers
+  
+     # Define a layer (group of machine users)
+  - !layer machines
+
+  - !grant
+    roles:
+    - !group consumers
+    members:
+    - !host himeji-secrets-provider
+
+  - !grant
+    role: !group consumers
+    member: !host HimejiApp
+
+  - &variables
+   - !variable slack_botduty_webhook
+   - !variable dockerhub_cred
+   - !variable github_cred
+
+  - !permit
+    # Give permissions to the human user to update the secret and fetch the secret.
+    role: !user DevOpsAdmin
+    privileges: [read, update, execute]
+    resource: *variables
+
+  - !permit
+    # Give permissions to the non-human identity to fetch the secret.
+    role: !host HimejiApp
+    privileges: [read, execute]
+    resource: *variables
+
+  - !permit
+    role: !group consumers
+    privilege: [ read, execute ]
+    resource: *variables
