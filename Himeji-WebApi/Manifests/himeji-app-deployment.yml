@@ -78,6 +78,8 @@ spec:
             value: github-cred
           - name: SECRETS_DESTINATION
             value: k8s_secrets
+          - name: DEBUG
+            value: 'true'
         envFrom:
           - configMapRef:
               name: conjur-connect
