@@ -1,13 +1,13 @@
 ﻿apiVersion: v1
 kind: Service
 metadata:
-  name: himeji-app-lb
+  name: himeji-app-np
   labels:
     app: himeji-app
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8080
-      targetPort: 80
+      targetPort: 30030
   selector:
     app: himeji-app
