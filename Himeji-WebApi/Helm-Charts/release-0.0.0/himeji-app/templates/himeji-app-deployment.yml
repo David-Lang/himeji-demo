@@ -20,7 +20,7 @@ spec:
       labels:
         app: himeji-app
     spec:
-      serviceAccountName: default
+      serviceAccountName: himeji-app-serviceaccount
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi

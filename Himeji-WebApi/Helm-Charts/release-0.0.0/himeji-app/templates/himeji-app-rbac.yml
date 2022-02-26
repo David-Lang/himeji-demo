@@ -17,7 +17,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     namespace: himejijo
-    name: default
+    name: himeji-app-serviceaccount
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
