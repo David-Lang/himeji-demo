@@ -45,15 +45,15 @@ spec:
             port: 80
           successThreshold: 3
         env:
-          - name: SLACK_BOTDUTY_WEBHOOK
-            valueFrom:
-              secretKeyRef:
-                name: slack-botduty-webhook
-                key: token
+          #- name: SLACK_BOTDUTY_WEBHOOK
+          #  valueFrom:
+          #    secretKeyRef:
+          #      name: slack-botduty-webhook
+          #      key: token
           - name: HIMEJI_APP_VERSION
-            value: v22.2.23.2
+            value: {{ .Values.image.himeji_app.tag }}
           - name: HIMEJI_HELM_RELEASE
-            value: 0.0.0
+            value: {{.Release.Name}}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
