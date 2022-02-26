@@ -24,7 +24,7 @@ spec:
       terminationGracePeriodSeconds: 1
       containers:
       - name: himeji-webapi
-        image: {{ .Values.himeji_app.repository }}:{{ .Values.himeji_app.tag }}
+        image: {{ .Values.image.himeji_app.repository }}:{{ .Values.image.himeji_app.tag }}
         startupProbe:
           httpGet:
             path: /health/startup
@@ -58,7 +58,7 @@ spec:
         ports:
         - containerPort: 80
       initContainers:
-      - image: {{ .Values.conjur_sidecar.repository }}:{{ .Values.conjur_sidecar.tag }}
+      - image: {{ .Values.image.conjur_sidecar.repository }}:{{ .Values.image.conjur_sidecar.tag }}
         imagePullPolicy: Always
         name: cyberark-secrets-provider-for-k8s
         env:
