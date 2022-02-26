@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="cluster-prep-conjur.sh" />
+    <None Remove="namespace-prep-conjour.sh" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="cluster-prep-conjur.sh" />
+    <Compile Include="namespace-prep-conjour.sh" />
+  </ItemGroup>
+
+</Project>
