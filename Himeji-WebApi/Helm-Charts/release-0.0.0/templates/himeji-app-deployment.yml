@@ -1,0 +1,87 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: himeji-app-pod
+  labels:
+    app: himeji-app
+spec:
+  selector:
+    matchLabels:
+      app: himeji-app
+  replicas: 3
+  minReadySeconds: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: himeji-app
+    spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: himeji-webapi
+        image: {{ .Values.himeji_app.repository }}:{{ .Values.himeji_app.tag }}
+        startupProbe:
+          httpGet:
+            path: /health/startup
+            port: 80
+          failureThreshold: 30
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 80
+          successThreshold: 3
+        env:
+          - name: SLACK_BOTDUTY_WEBHOOK
+            valueFrom:
+              secretKeyRef:
+                name: slack-botduty-webhook
+                key: token
+          - name: HIMEJI_APP_VERSION
+            value: v22.2.23.2
+          - name: HIMEJI_HELM_RELEASE
+            value: 0.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      initContainers:
+      - image: {{ .Values.conjur_sidecar.repository }}:{{ .Values.conjur_sidecar.tag }}
+        imagePullPolicy: Always
+        name: cyberark-secrets-provider-for-k8s
+        env:
+          - name: CONJUR_AUTHN_LOGIN
+            value: host/himeji-secrets-provider
+          - name: CONTAINER_MODE
+            value: init
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: K8S_SECRETS
+            value: github-cred
+          - name: SECRETS_DESTINATION
+            value: k8s_secrets
+          - name: DEBUG
+            value: 'true'
+        envFrom:
+          - configMapRef:
+              name: conjur-connect
+      imagePullSecrets:
+      - name: dockerhub-cred 

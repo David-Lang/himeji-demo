@@ -1,0 +1,8 @@
+image:
+  himeji_app:
+    repository: davidlang/himeji-private
+    tag: "v22.2.23.2"
+  conjur_sidecar:
+    repository: cyberark/secrets-provider-for-k8s
+    tag: "latest"
+replicaCount: 1
