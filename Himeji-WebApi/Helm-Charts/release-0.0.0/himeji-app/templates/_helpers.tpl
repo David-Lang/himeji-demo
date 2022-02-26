@@ -1,4 +1,4 @@
-{{- define "backend.fullname" -}}
+{{- define "himeji_app.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
