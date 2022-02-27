@@ -1,10 +1,10 @@
 ﻿CONJUR_NAMESPACE="conjur-helm-aks"
 HELM_RELEASE="conjur-oss"
-AUTHENTICATORS="authn\,authn-k8s/dev-cluster"
+LOG_LEVEL="debug"
 
 helm upgrade \
    -n "$CONJUR_NAMESPACE" \
    --reuse-values \
-   --set authenticators="$AUTHENTICATORS" \
+   --set logLevel="$LOG_LEVEL" \
    "$HELM_RELEASE" \
    ./conjur-oss
