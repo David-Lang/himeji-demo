@@ -1,5 +1,5 @@
 ﻿- !policy
-  id: HimejiApp
+  id: conjur/himeji-app
   body:
     # Define a human users
   - !user DevOpsAdmin

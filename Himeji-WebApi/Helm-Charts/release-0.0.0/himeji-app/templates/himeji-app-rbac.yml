@@ -21,4 +21,4 @@ subjects:
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
-  name: secrets-access
+  name: secrets-access 
