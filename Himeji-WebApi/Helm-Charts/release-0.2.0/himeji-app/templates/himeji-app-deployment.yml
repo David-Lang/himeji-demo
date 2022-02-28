@@ -27,7 +27,7 @@ spec:
         hostnames:
         - "conjur.myorg.com"
       containers:
-      - name: {{ .Release.Name }}-{{ .Chart.Name }}-webapi
+      - name: {{ .Release.Name }}-{{ .Chart.Verion }}-webapi
         image: {{ .Values.image.himeji_app.repository }}:{{ .Values.image.himeji_app.tag }}
         startupProbe:
           httpGet:
