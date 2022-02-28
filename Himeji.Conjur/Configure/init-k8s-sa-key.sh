@@ -5,7 +5,4 @@ TOKEN_SECRET_NAME = "$(kubectl get secrets -n conjur-helm-aks | grep 'authn-k8s-
 
 kubectl get secret $TOKEN_SECRET_NAME -n conjur-helm-aks --output='go-template={{ .data.token }}' | base64 --decode
 
-
 # 
-
-

@@ -67,7 +67,7 @@ spec:
         name: cyberark-secrets-provider-for-k8s
         env:
           - name: CONJUR_AUTHN_LOGIN
-            value: host/himeji-app-secrets-provider
+            value: host/himeji-app
           - name: CONTAINER_MODE
             value: init
           - name: MY_POD_NAME
