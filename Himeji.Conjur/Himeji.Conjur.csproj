@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <None Remove="Configure\init-k8s-ca.sh" />
+    <None Remove="Configure\init-k8s-sa-key.sh" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Include="Configure\init-k8s-ca.sh" />
+    <Compile Include="Configure\init-k8s-sa-key.sh" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@
     id: himeji-secrets-provider
     annotations:
       authn-k8s/namespace: himejijo
-      authn-k8s/service-account: default
+      authn-k8s/service-account: himeji-app-serviceaccount
       authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
 
      # Define a group of users (human)

@@ -11,6 +11,14 @@ helm install cluster-prep cyberark/conjur-config-cluster-prep \
   --set authnK8s.serviceAccount.name="authn-k8s-sa"
 
 
+  helm install cluster-prep cyberark/conjur-config-cluster-prep \
+  --namespace conjur-helm-aks \
+  --set conjur.account="default" \
+  --set conjur.applianceUrl="https://conjur.myorg.com/" \
+  --set conjur.certificateBase64="$(base64 -w0 conjur-cert.pem)" \
+  --set authnK8s.authenticatorID="dev-cluster" \
+  --set authnK8s.serviceAccount.name="authn-k8s-sa"
+
 
 # The value for this variable should be identical to the name given to the policy ID above, excluding the conjur/ prefix.
 # For example, to allowlist the conjur/authn-k8s/dev-cluster endpoint, allowlist authn-k8s/dev-cluster.
