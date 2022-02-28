@@ -1,7 +1,7 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: himeji-app
+  name: {{.Release.Name }}-{{ .Chart.Name }}-{{ .Chart.Version | replace "." "-" }}
   labels:
     app: himeji-app
 spec:
@@ -23,7 +23,7 @@ spec:
       serviceAccountName: himeji-app-serviceaccount
       terminationGracePeriodSeconds: 1
       hostAliases:
-      - ip: "20.116.161.99"
+      - ip: "20.200.101.128"
         hostnames:
         - "conjur.myorg.com"
       containers:
