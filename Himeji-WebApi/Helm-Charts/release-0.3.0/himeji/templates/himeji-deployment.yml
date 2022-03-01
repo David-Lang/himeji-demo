@@ -81,7 +81,7 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: K8S_SECRETS
-            value: [github-cred,slack-botduty-webhook,dockerhub-cred] 
+            value: github-cred,slack-botduty-webhook,dockerhub-cred 
           - name: SECRETS_DESTINATION
             value: k8s_secrets       
         envFrom:
