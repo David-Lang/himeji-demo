@@ -57,7 +57,7 @@ spec:
           - name: HIMEJI_APP_VERSION
             value: {{ .Values.image.himeji_app.tag }}
           - name: HIMEJI_HELM_RELEASE
-            value: {{.Release.Name}}-{{.Chart.Name}}}-{{ .Chart.Version }}
+            value: {{.Release.Name}}-{{.Chart.Name}}-{{ .Chart.Version }}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
