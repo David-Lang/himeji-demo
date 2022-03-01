@@ -13,7 +13,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 0
+      maxUnavailable: 1
       maxSurge: 1
   template:
     metadata:
@@ -27,7 +27,7 @@ spec:
         hostnames:
         - "conjur.myorg.com"
       containers:
-      - name: {{.Release.Name }}-{{ .Chart.Version | replace "." "-" }}-webapi 
+      - name: himeji-webapi
         image: {{ .Values.image.himeji_app.repository }}:{{ .Values.image.himeji_app.tag }}
         startupProbe:
           httpGet:
@@ -57,7 +57,7 @@ spec:
           - name: HIMEJI_APP_VERSION
             value: {{ .Values.image.himeji_app.tag }}
           - name: HIMEJI_HELM_RELEASE
-            value: {{.Release.Name}}
+            value: {{.Release.Name}}-{{.Chart.Name}}}-{{ .Chart.Version }}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
