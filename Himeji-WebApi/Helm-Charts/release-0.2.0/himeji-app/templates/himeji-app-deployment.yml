@@ -66,6 +66,8 @@ spec:
         imagePullPolicy: Always
         name: cyberark-secrets-provider-for-k8s
         env:
+          - name: DEBUG
+            value: true
           - name: CONJUR_AUTHN_LOGIN
             value: host/himeji-app
           - name: CONTAINER_MODE
@@ -81,9 +83,7 @@ spec:
           - name: K8S_SECRETS
             value: github-cred
           - name: SECRETS_DESTINATION
-            value: k8s_secrets
-          - name: DEBUG
-            value: 'true'
+            value: k8s_secrets       
         envFrom:
           - configMapRef:
               name: conjur-connect
