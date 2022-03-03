@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="cluster-prep-conjur.sh" />
+    <None Remove="Hyogo-aks\0-helm-install-conjur.sh" />
     <None Remove="Matsumoto-aks\3-init-k8s-ca-conjur-prep.sh" />
     <None Remove="Matsumoto-aks\4-init-k8s-cluster-prep.sh" />
     <None Remove="namespace-prep-conjour.sh" />
@@ -15,6 +16,7 @@
 
   <ItemGroup>
     <Compile Include="cluster-prep-conjur.sh" />
+    <Compile Include="Hyogo-aks\0-helm-install-conjur.sh" />
     <Compile Include="Matsumoto-aks\3-init-k8s-ca-conjur-prep.sh" />
     <Compile Include="Matsumoto-aks\4-init-k8s-cluster-prep.sh" />
     <Compile Include="namespace-prep-conjour.sh" />
