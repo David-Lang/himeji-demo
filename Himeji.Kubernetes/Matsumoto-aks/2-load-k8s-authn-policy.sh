@@ -1,8 +1,4 @@
-﻿
-# Use API via postman to load policy
-
-# k8s-authenticator-webservice.yml
----
+﻿---
 # =================================================
 # == Enroll a Kubernetes authentication service
 # =================================================
