@@ -14,7 +14,7 @@ metadata:
   name: secrets-access-binding
 subjects:
   - kind: ServiceAccount
-    name: himeji-app-serviceaccount
+    name: himeji-serviceaccount
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
