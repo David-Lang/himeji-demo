@@ -23,7 +23,7 @@ spec:
       serviceAccountName: himeji-serviceaccount
       terminationGracePeriodSeconds: 1
       hostAliases:
-      - ip: "20.200.101.128"
+      - ip: {{ .Values.conjur_ingress.ip }}
         hostnames:
         - "conjur.myorg.com"
       containers:

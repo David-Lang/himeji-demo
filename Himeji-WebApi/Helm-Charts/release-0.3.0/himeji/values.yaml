@@ -5,4 +5,6 @@ image:
   conjur_sidecar:
     repository: cyberark/secrets-provider-for-k8s
     tag: "latest"
+conjur_ingress:
+  ip: "1.1.1.1"
 replicaCount: 1
