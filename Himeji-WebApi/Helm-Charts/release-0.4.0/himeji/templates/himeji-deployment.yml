@@ -1,7 +1,7 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Release.Name }}-{{ .Chart.Name }}-{{ .Chart.Version | replace "." "-" }}
+  name: {{.Release.Name }}-{{ .Chart.Name }}-{{ .Chart.Version | replace "." "-" }}-webapi
   labels:
     app: himeji
 spec:
