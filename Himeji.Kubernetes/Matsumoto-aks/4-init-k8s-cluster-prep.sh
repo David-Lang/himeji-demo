@@ -3,7 +3,7 @@
 
  ./get-conjur-cert.sh -v -f conjur-cert.pem -u https://conjur.myorg.com 
  
-# To use same namespace as installed conjure set k8s to conjur namespace (only valide if running single autheticator)
+# The same namespace as installed conjure can be used only if running a single autheticator
 helm install cluster-prep cyberark/conjur-config-cluster-prep \
   --namespace cyberark-conjur \
   --create-namespace \

@@ -20,7 +20,7 @@ spec:
       labels:
         app: himeji
     spec:
-      serviceAccountName: himeji-app-serviceaccount
+      serviceAccountName: himeji-serviceaccount
       terminationGracePeriodSeconds: 1
       hostAliases:
       - ip: "20.200.101.128"
