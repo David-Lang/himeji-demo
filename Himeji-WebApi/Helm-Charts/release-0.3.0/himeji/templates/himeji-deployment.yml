@@ -88,4 +88,4 @@ spec:
           - configMapRef:
               name: conjur-connect
       imagePullSecrets:
-      - name: dockerhub-pull-cred 
+      - name: dockerhub-cred 
