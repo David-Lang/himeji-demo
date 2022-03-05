@@ -10,8 +10,4 @@
     <None Remove="Hyogo-aks\0-helm-install-conjur.sh" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Matsumoto-aks\" />
-  </ItemGroup>
-
 </Project>
