@@ -36,6 +36,10 @@ kubectl exec --namespace conjur-oss $POD_NAME --container=conjur-oss -- conjurct
 
 kubectl get svc --namespace conjur-oss > artifacts/svc-conjur-oss
 
+# remove old conjur entry
+grep -v "conjur.myorg.com" /etc/hosts > artifacts/hosts && cat artifacts/hosts > /etc/hosts
+
+# add new conjur entry
 CONJUR_IP=$(cat artifacts/svc-conjur-oss | grep ingress | tr -s ' ' | cut -d ' ' -f 4) 
 echo "$CONJUR_IP conjur.myorg.com" >> /etc/hosts
 
