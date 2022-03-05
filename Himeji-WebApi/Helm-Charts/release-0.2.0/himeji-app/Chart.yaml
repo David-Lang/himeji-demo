@@ -1,6 +1,0 @@
-apiVersion: v2
-name: himeji-app
-appVersion: "v22.2.23.2"
-description: A Helm chart for Himeji-App
-version: 0.2.0
-type: application
