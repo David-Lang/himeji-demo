@@ -29,7 +29,7 @@ kubectl apply -n conjur-oss -f manifests/pg-admin.yml
 printf "\nwaiting for $POD_NAME ready\n"
 sleep 70
 
-kubectl exec conjur-oss-postgres-0 -- env | grep POSTGRES_PASSWORD > artifacts/postgres-cred
+kubectl exec --namespace conjur-oss conjur-oss-postgres-0 -- env | grep POSTGRES_PASSWORD > artifacts/postgres-cred
 kubectl get svc --namespace conjur-oss >> artifacts/postgres-cred
 
 kubectl exec --namespace conjur-oss $POD_NAME --container=conjur-oss -- conjurctl account create "default" | tail -1 > artifacts/admin-cred
