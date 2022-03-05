@@ -23,5 +23,4 @@ curl --insecure --request POST 'https://conjur.myorg.com/secrets/default/variabl
      --header 'X-Request-Id: <string>' \
      --header 'Content-Type: application/octet-stream' \
      --header "Authorization: $FORMATTED_TOKEN" \
-     --data-raw "github_cred-secret--data-raw 'slack_botduty_webhook-secret'"
-
+     --data-binary "@/opt/himeji/secrets/slack-botduty-webhook" 
