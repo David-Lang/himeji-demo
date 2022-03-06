@@ -14,3 +14,16 @@
     - !group conjur/authn-k8s/dev-cluster/consumers
     members: 
     - !host himeji-app
+
+  - !host
+    id: flux-himeji-app
+    annotations:
+      authn-k8s/namespace: flux-app-demo
+      authn-k8s/service-account: himeji-serviceaccount
+      authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
+
+  - !grant
+    roles: 
+    - !group conjur/authn-k8s/dev-cluster/consumers
+    members: 
+    - !host flux-himeji-app
