@@ -41,7 +41,7 @@ CONJUR_IP=$(cat artifacts/svc-conjur-oss | grep ingress | tr -s ' ' | cut -d ' '
 cp manifests/coredns-conjur-host.yml artifacts/coredns-conjur-host.yml
 sed -i "s/1.2.3.4 conjur.myorg.com/$CONJUR_IP conjur.myorg.com/g" artifacts/coredns-conjur-host.yml 
 kubectl apply -f artifacts/coredns-conjur-host.yml 
-kubectl rollout restart -n kube-system deployment/coredns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 
 # remove old conjur entry
 grep -v "conjur.myorg.com" /etc/hosts > artifacts/hosts && cat artifacts/hosts > /etc/hosts

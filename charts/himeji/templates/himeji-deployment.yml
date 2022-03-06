@@ -22,10 +22,10 @@ spec:
     spec:
       serviceAccountName: himeji-serviceaccount
       terminationGracePeriodSeconds: 1
-      hostAliases:
-      - ip: {{ .Values.conjur_ingress.ip }}
-        hostnames:
-        - "conjur.myorg.com"
+      #hostAliases:
+      #- ip: {{ .Values.conjur_ingress.ip }}
+      #  hostnames:
+      #  - "conjur.myorg.com"
       containers:
       - name: himeji-webapi
         image: {{ .Values.image.himeji_app.repository }}:{{ .Values.image.himeji_app.tag }}
