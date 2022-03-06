@@ -69,7 +69,7 @@ spec:
           - name: DEBUG
             value: "true"
           - name: CONJUR_AUTHN_LOGIN
-            value: host/{{conjur_host.id}}
+            value: host/{{ Values.conjur_host.id }}
           - name: CONTAINER_MODE
             value: init
           - name: MY_POD_NAME
