@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Himeji-WebApi", "Himeji-Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Himeji.Framework", "Himeji.Framework\Himeji.Framework.csproj", "{1E462228-EB98-4830-86F6-9FDC14DDA4D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Himeji.Conjur", "Himeji.Conjur\Himeji.Conjur.csproj", "{2E040B46-541E-4F48-8FAE-D069EE0AEEFC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Himeji.Kubernetes", "Himeji.Kubernetes\Himeji.Kubernetes.csproj", "{4FCE90EC-29DD-4ADB-B2BF-A36C5962BFAD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,14 +21,6 @@ Global
 		{1E462228-EB98-4830-86F6-9FDC14DDA4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E462228-EB98-4830-86F6-9FDC14DDA4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E462228-EB98-4830-86F6-9FDC14DDA4D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E040B46-541E-4F48-8FAE-D069EE0AEEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E040B46-541E-4F48-8FAE-D069EE0AEEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E040B46-541E-4F48-8FAE-D069EE0AEEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E040B46-541E-4F48-8FAE-D069EE0AEEFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FCE90EC-29DD-4ADB-B2BF-A36C5962BFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FCE90EC-29DD-4ADB-B2BF-A36C5962BFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FCE90EC-29DD-4ADB-B2BF-A36C5962BFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FCE90EC-29DD-4ADB-B2BF-A36C5962BFAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
