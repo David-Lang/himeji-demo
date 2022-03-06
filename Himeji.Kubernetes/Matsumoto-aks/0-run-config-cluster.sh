@@ -6,4 +6,4 @@
 ./6-helm-install-namespace-prep.sh
 ./7-set-conjour-policy-app.sh
 ./8-helm-install-app-demo.sh
-./9-bootstarp-install-flux.sh
+./9-bootstrap-install-flux.sh
