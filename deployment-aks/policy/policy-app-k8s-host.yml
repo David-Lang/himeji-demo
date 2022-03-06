@@ -5,9 +5,10 @@
   - !host
     id: himeji-app
     annotations:
+      authn-k8s/namespace: app-demo
       authn-k8s/service-account: himeji-serviceaccount
       authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
-#      authn-k8s/namespace: app-demo
+
 
   - !grant
     roles: 
@@ -18,9 +19,9 @@
   - !host
     id: flux-himeji-app
     annotations:
+      authn-k8s/namespace: flux-app-demo
       authn-k8s/service-account: himeji-serviceaccount
       authn-k8s/authentication-container-name: cyberark-secrets-provider-for-k8s
-#      authn-k8s/namespace: flux-app-demo
 
   - !grant
     roles: 
