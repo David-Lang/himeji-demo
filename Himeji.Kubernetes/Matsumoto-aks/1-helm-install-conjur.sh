@@ -17,16 +17,14 @@ helm install -n "$CONJUR_NAMESPACE" \
 "$HELM_RELEASE" \
 cyberark/conjur-oss
 
-sleep 1
+# Install pg-admin as pod
+kubectl apply -n conjur-oss -f manifests/pg-admin.yml
 
 POD_NAME=$(kubectl get pods --namespace conjur-oss \
          -l "app=conjur-oss,release=conjur-oss" \
          -o jsonpath="{.items[0].metadata.name}")
 
-# Install pg-admin
-kubectl apply -n conjur-oss -f manifests/pg-admin.yml
-
-printf "\nwaiting for $POD_NAME ready\n"
+printf "\nwaiting 70 seconds for $POD_NAME ready\n"
 sleep 70
 
 kubectl exec --namespace conjur-oss conjur-oss-postgres-0 -- env | grep POSTGRES_PASSWORD > artifacts/postgres-cred
