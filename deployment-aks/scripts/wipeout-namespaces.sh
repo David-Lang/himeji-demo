@@ -9,6 +9,7 @@ helm uninstall himeji -n flux-app-demo
 helm list --all --all-namespaces
 
 flux uninstall -s
+flux uninstall -s
 
 kubectl delete namespace app-demo
 kubectl delete namespace cyberark-conjur
