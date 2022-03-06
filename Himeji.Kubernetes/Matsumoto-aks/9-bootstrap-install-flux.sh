@@ -1,8 +1,8 @@
-GITHUB_TOKEN=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
+export GITHUB_TOKEN="$(cat /opt/himeji/secrets/github-token)"
 
 flux bootstrap github \
   --owner=david-lang \
-  --repository=flux \
+  --repository=flux-aks \
   --branch=master \
   --path=./clusters/my-cluster \
-  --personal 
+  --personal
