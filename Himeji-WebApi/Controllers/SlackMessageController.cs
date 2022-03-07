@@ -40,7 +40,7 @@ namespace Himeji_WebApi.Controllers
 
             try 
             {
-                Himeji.Framework.Slack.Api.WebHookBotDuty.SendMessage(msg, "C033X1MLJDT");
+                Himeji.Framework.Slack.Api.WebHookBotDuty.SendMessage(msg);
             }
             catch (Exception ex) 
             {
