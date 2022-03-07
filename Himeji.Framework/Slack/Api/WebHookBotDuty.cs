@@ -27,7 +27,7 @@ namespace Himeji.Framework.Slack.Api
             _httpClient = HttpClientFactory.NoAuth(false, 2);
         }
 
-        public static void SendMessage(string message)
+        public static void SendMessage(string message, string channel = "C033KB1LXAB")
         {
             var response = SendMessageAsync(message, _channel);
 
