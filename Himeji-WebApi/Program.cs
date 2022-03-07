@@ -5,7 +5,14 @@ var podName = Environment.GetEnvironmentVariable("HOSTNAME");
 if (string.IsNullOrEmpty(podName)) podName = "Unable to read HOSTNAME";
 if (!string.IsNullOrEmpty(podName))
 {
-    Himeji.Framework.Slack.Api.WebHookBotDuty.SendMessage($"Himeji App Initializing on pod: {podName}");
+    try
+    {
+        Himeji.Framework.Slack.Api.WebHookBotDuty.SendMessage($"Himeji App Initializing on pod: {podName}");
+    }
+    catch 
+    { 
+        //do nothing
+    }
 }
 
 
