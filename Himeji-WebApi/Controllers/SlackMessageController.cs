@@ -34,7 +34,7 @@ namespace Himeji_WebApi.Controllers
             details.AppendLine($"HelmRelease: {helmRelease}");
 
             var awesomeJoke = Himeji.Framework.Funny.Puns.GetJoke();
-            var msg = $"{awesomeJoke} ```Sent from: {details.ToString()}```";
+            var msg = $"{awesomeJoke} ```{details.ToString()}```";
             
             result = msg;
 
