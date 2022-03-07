@@ -10,4 +10,4 @@ conjur_ingress:
   ip: "1.1.1.1"
 conjur_host:
   id: "himeji-app"
-replicaCount: 3
+replicaCount: 2
