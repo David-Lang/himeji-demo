@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: himeji
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   minReadySeconds: 1
   strategy:
     type: RollingUpdate
