@@ -1,3 +1,4 @@
+echo "Helm install app demo starting" 
 
 ./scripts/fetch_himeji-repo.sh
 

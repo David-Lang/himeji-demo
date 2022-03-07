@@ -1,3 +1,5 @@
+echo "Helm install cluster prep starting" 
+
 # use conjur-config-cluster-prep repo readme and bin script to fetch .pem from running conjur
 # from dir with .pem file 
 

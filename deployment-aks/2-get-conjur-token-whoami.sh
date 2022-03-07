@@ -1,3 +1,4 @@
+echo "Get conjur token starting" 
 
 ADMINKEY="$(cut -d ' ' -f 5 artifacts/admin-cred)"
 

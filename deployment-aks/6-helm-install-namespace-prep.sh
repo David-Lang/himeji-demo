@@ -1,3 +1,4 @@
+echo "Helm install namespace prep starting" 
 
 helm install app-demo-namespace-prep cyberark/conjur-config-namespace-prep \
   --namespace "app-demo" \

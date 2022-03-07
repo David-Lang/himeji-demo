@@ -1,3 +1,5 @@
+echo "set conjur k8s policy starting" 
+
 FORMATTED_TOKEN="Token token=\"$(cat artifacts/admin-token)\""
 
 curl --insecure --request PUT 'https://conjur.myorg.com/policies/default/policy/root' \

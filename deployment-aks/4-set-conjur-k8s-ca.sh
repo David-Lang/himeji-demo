@@ -1,3 +1,5 @@
+echo "Set conjur k8s ca starting" 
+
 SERVICE_ID=dev-cluster
 CONJUR_ACCOUNT=default
 

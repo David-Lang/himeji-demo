@@ -1,3 +1,5 @@
+echo "Flux bootstrap install starting" 
+
 export GITHUB_TOKEN="$(cat /opt/himeji/secrets/github-token)"
 
 flux bootstrap github \

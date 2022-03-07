@@ -1,3 +1,5 @@
+echo "Set conjur policy app starting" 
+
 FORMATTED_TOKEN="Token token=\"$(cat artifacts/admin-token)\""
 
 curl --insecure --silent --request POST 'https://conjur.myorg.com/policies/default/policy/root' \
