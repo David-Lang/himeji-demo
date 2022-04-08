@@ -1,7 +1,9 @@
 echo "Helm install conjur-oss starting" 
 
+helm repo add cyberark https://cyberark.github.io/helm-charts
+
 CONJUR_NAMESPACE=conjur-oss
-DATA_KEY="$(docker run --rm cyberark/conjur data-key generate)"
+DATA_KEY="$(sudo docker run --rm cyberark/conjur data-key generate)"
 HELM_RELEASE=conjur-oss
 AUTHENTICATORS="authn\,authn-k8s/dev-cluster"
 LOG_LEVEL="debug"

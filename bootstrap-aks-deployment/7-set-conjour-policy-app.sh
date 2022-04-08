@@ -26,10 +26,10 @@ curl --insecure --request POST 'https://conjur.myorg.com/secrets/default/variabl
      --header 'X-Request-Id: <string>' \
      --header 'Content-Type: application/octet-stream' \
      --header "Authorization: $FORMATTED_TOKEN" \
-     --data-binary "@/opt/himeji/secrets/dockerhub-cred" 
+     --data-binary "@~/.secrets/dockerhub-cred" 
 
 curl --insecure --request POST 'https://conjur.myorg.com/secrets/default/variable/demo-app/slack_botduty_webhook' \
      --header 'X-Request-Id: <string>' \
      --header 'Content-Type: application/octet-stream' \
      --header "Authorization: $FORMATTED_TOKEN" \
-     --data-binary "@/opt/himeji/secrets/slack-botduty-webhook" 
+     --data-binary "@~/.secrets/slack-botduty-webhook" 
