@@ -1,6 +1,6 @@
 echo "Flux bootstrap install starting" 
 
-export GITHUB_TOKEN="$(cat /opt/himeji/secrets/github-token)"
+export GITHUB_TOKEN="$(cat ~/.secrets/github-token)"
 
 flux bootstrap github \
   --owner=david-lang \
